@@ -1,18 +1,38 @@
-const form = document.querySelector('form');
+const formEl = document.querySelector("form")
+const template = document.querySelector("template")
+const ul = document.querySelector("ul")
+const data = []
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const name = document.getElementById('name').value;
-    const tel = document.getElementById('tel').value;
-    const email = document.getElementById('email').value;
-    const img = document.getElementById('img').value;
+const updateUI = (users) => {
+    ul.innerHTML = ''
+    users.forEach(user => {
+        const clone = template.content.cloneNode(true)
+        const elements = {
+            image: clone.querySelector("img"),
+            name: clone.querySelector("h3"),
+            email: clone.querySelector(".email"),
+            tel: clone.querySelector(".tel")
+        };
+        elements.image.src = user.image
+        elements.name.textContent = `Name: ${user.name}`
+        elements.email.textContent = `Email: ${user.mail}`
+        elements.tel.textContent = `Tel: ${user.number}`
+        elements.email.setAttribute("href", `mailto:${user.mail}`)
+        elements.tel.setAttribute("href", `tel:${user.number}`)
+        ul.appendChild(clone)
+    });
+}
 
-    const newobg = {
-        name,
-        tel,
-        email,
-        img
+formEl.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const userInfo = {
+        id: Math.random() * new Date().getMilliseconds(),
+        name: formEl.name.value,
+        image: formEl.image.value,
+        number: formEl.phone.value,
+        mail: formEl.email.value,
     }
-    form.reset(); 
-    console.log(newobg);
+    data.push(userInfo);
+    updateUI(data)
+    formEl.reset()
 })

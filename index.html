@@ -2,61 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-            content-visibility: auto;
-            }
-        }
-            </style>
-    <script
-        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
 </head>
 
-<body>
-    <form class="container w-96 p-5  cursor-pointer">
-        <h3 class="text-3xl text-center cursor-pointer font-semibold">User info:</h3>
-        <label class="mb-4 block">
-            <span class="block ">User Name: </span>
-            <input id="name" type="text"
-                class="block cursor-pointer w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-        </label>
-        <label class="mb-4 block">
-            <span class="block">Phone Number: </span>
-            <input id="tel" type="tel"
-                class="block w-full rounded-md cursor-pointer  border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-        </label>
-        <label class="mb-4 block">
-            <span class="block">img: </span>
-            <input id="img" type="url"
-                class="block w-full rounded-md cursor-pointer border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-        </label>
-        <label class="mb-4 block">
-            <span class="block">email: </span>
-            <input id="email" type="email"
-                class="block w-full rounded-md cursor-pointer border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-        </label>
-
-        <button class="text-white bg-blue-500 cursor-pointer hover:bg-blue-600 px-3 py-2 rounded-md">Submit</button>
-    </form>
-
-    <script src="main.js"></script>
+<body class="p-10  from-sky-500 to-indigo-500 text-white font-mono ">
+    <div class="flex gap-20">
+        <form class="flex flex-col gap-4 mt-16">
+            <label class="mb-4  gap-2 items-center w-80" for="name">
+                <span class="block tracking-wide text-xl text-black">Name:</span>
+                <input id="name"
+                    class="block w-full rounded-md border-2 border-gray-300 py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent placeholder-gray-400 sm:text-sm sm:leading-5"
+                    type="text" placeholder="Peter Parker" required />
+            </label>
+            <label class="mb-4  gap-2 items-center" for="image">
+                <span class="block tracking-wide text-xl text-black">Image:</span>
+                <input id="image"
+                    class="block w-full rounded-md border-2 border-gray-300 py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent placeholder-gray-400 sm:text-sm sm:leading-5"
+                    type="url" placeholder="https://image.jpg" required />
+            </label>
+            <label class="mb-4 gap-2 items-center" for="phone">
+                <span class="block tracking-wide text-xl text-black">Number:</span>
+                <input id="phone"
+                    class="block w-full rounded-md border-2 border-gray-300 py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent placeholder-gray-400 sm:text-sm sm:leading-5"
+                    type="tel" placeholder="+998158698416" required />
+            </label>
+            <label class="mb-4  gap-2 items-center" for="email">
+                <span class="block tracking-wide text-xl text-black">Email:</span>
+                <input id="email"
+                    class="block w-full rounded-md border-2 border-gray-300 py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent placeholder-gray-400 sm:text-sm sm:leading-5"
+                    type="email" placeholder="Jemms20@gmail.com" required />
+            </label>
+            <button class="border px-4 py-1 rounded bg-blue-500 hover:bg-white hover:text-black transition duration-300">
+                Submit
+            </button>
+        </form>
+        <ul class="mt-10 w-9/12 flex flex-wrap gap-10 drop-shadow-md shadow truncate p-10">
+            <template>
+                <li class="rounded bg-white text-black flex flex-col gap-2">
+                    <img height="10" src=" " class="h-80" />
+                    <h3 class="px-2 text-xl">Name:</h3>
+                    <a class="tel px-2 text-xl transition duration-300 hover:underline decoration-solid">Tel:
+                        </a>
+                    <a class="mb-4 email px-2 text-xl transition duration-300 hover:underline decoration-solid">Email:
+                        </a>
+                </li>
+            </template>
+        </ul>
+    </div>
+    <script src="./main.js"></script>
 </body>
 
 </html>
